@@ -6,12 +6,26 @@ const Login = () => {
   // when you have handled the token, navigate to the BubblePage route
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  
+
   return (
-    <>
+    <section className='login-page'>
       <h1>Welcome to the Bubble App!</h1>
-      <p>Build a login page here</p>
-    </>
+      <form className='login-form'>
+        <input
+          type='text'
+          name='username'
+          placeholder='Username'
+          value={username}
+        />
+        <input
+          type='password'
+          name='password'
+          placeholder='Password'
+          value={password}
+        />
+        <button>Login</button>
+      </form>
+    </section>
   );
 };
 
