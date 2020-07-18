@@ -7,6 +7,14 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+  const updateUsername = event => {
+    setUsername(event.target.value);
+  }
+
+  const updatePassword = event => {
+    setPassword(event.target.value);
+  }
+
   return (
     <section className='login-page'>
       <h1>Welcome to the Bubble App!</h1>
@@ -16,12 +24,14 @@ const Login = () => {
           name='username'
           placeholder='Username'
           value={username}
+          onChange={updateUsername}
         />
         <input
           type='password'
           name='password'
           placeholder='Password'
           value={password}
+          onChange={updatePassword}
         />
         <button>Login</button>
       </form>
