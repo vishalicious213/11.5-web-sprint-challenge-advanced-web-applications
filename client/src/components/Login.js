@@ -15,10 +15,25 @@ const Login = () => {
     setPassword(event.target.value);
   }
 
+  const submitLogin = event => {
+    event.preventDefault();
+    // console.log(username, password);
+    axios
+      .post('http://localhost:5000/api/login', { username, password})
+      .then(results => {
+        console.log('Results: ', results.data.payload);
+      })
+      .catch(error => {
+        console.log('Login error: ', error);
+        setUsername('');
+        setPassword('');
+      })
+  }
+
   return (
     <section className='login-page'>
       <h1>Welcome to the Bubble App!</h1>
-      <form className='login-form'>
+      <form className='login-form' onSubmit={submitLogin}>
         <input
           type='text'
           name='username'
